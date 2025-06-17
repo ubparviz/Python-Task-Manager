@@ -21,7 +21,7 @@ def add_task() -> None:
         print("Bu taskni avval kiritgansiz")
     else:
         todos.append(task)
-        print("Task qo'shildi✅")
+        print("Task qo'shildi")
               
 
 def print_todos() -> None:
@@ -36,7 +36,7 @@ def delete_task() -> None:
     if index != int:
         if 1 <= index <= len(todos):
             deleted = todos.pop(index - 1)
-            print(f"✅ '{deleted}' o'chirildi.")
+            print(f"'{deleted}' o'chirildi.")
         else:
             print("Xato raqam.")
     else:
@@ -50,7 +50,7 @@ def update_task() -> None:
         if 1 <= index <= len(todos):
             new_task = input("Yangi task kiriting: ").strip().capitalize()
             if new_task in todos:
-                print("❗ Bu task allaqachon mavjud.")
+                print("Bu task allaqachon mavjud.")
             else:
                 old_task = todos[index - 1]
                 todos[index - 1] = new_task
@@ -77,7 +77,7 @@ def main() -> None:
         elif choice == '5':
             confirm = input("Chiqishni xohlaysizmi? (ha/yo'q): ").strip().lower()
             if confirm in ('ha', 'h'):
-                print("👋 Dasturdan chiqildi.")
+                print("Dasturdan chiqildi.")
                 break
         else:
             print("Noto'g'ri menu tanlandi.")
