@@ -14,19 +14,51 @@ def print_menu() -> None:
 
 
 def add_task() -> None:
-    pass
 
+    print("========= Task qo'shish =========")
+    task = input("Task kiriting: ").strip().capitalize()
+    if task in todos:
+        print("Bu taskni avval kiritgansiz")
+    else:
+        todos.append(task)
+        print("Task qo'shildi✅")
+              
 
 def print_todos() -> None:
-    pass
+    print("========= Barcha Tasklar =========")
+    for index, todo in enumerate(todos, start=1):
+        print(f"{index}. {todo}")
 
 
 def delete_task() -> None:
-    pass
+    print_todos()
+    index = int(input("O'chirmoqchi bo'lgan task raqamini kiriting: "))
+    if index != int:
+        if 1 <= index <= len(todos):
+            deleted = todos.pop(index - 1)
+            print(f"✅ '{deleted}' o'chirildi.")
+        else:
+            print("Xato raqam.")
+    else:
+        print("Iltimos, faqat raqam kiriting.")
 
 
 def update_task() -> None:
-    pass
+    print_todos()
+    index = int(input("Qaysi taskni yangilamoqchisiz? Raqamini kiriting: "))
+    if index != int:
+        if 1 <= index <= len(todos):
+            new_task = input("Yangi task kiriting: ").strip().capitalize()
+            if new_task in todos:
+                print("❗ Bu task allaqachon mavjud.")
+            else:
+                old_task = todos[index - 1]
+                todos[index - 1] = new_task
+                print(f"'{old_task}' -> '{new_task}' ga yangilandi.")
+        else:
+            print("Noto'g'ri raqam.")
+    else:
+        print("Iltimos, faqat raqam kiriting.")
 
 
 def main() -> None:
@@ -48,6 +80,6 @@ def main() -> None:
                 print("👋 Dasturdan chiqildi.")
                 break
         else:
-            print("❌ Noto‘g‘ri menu tanlandi.")
+            print("Noto'g'ri menu tanlandi.")
 
 main()
